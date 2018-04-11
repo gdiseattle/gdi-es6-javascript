@@ -250,6 +250,7 @@
 					<ol>
 						<li>Transpiling</li>
 						<li>Scopes &amp; Variables</li>
+						<li>Classes</li>
 						<li>String Helpers</li>
 					</ol>
 
@@ -409,7 +410,7 @@ if (isPhiladelphia) {
 					<h2>The <em>const</em> Declaration</h2>
 					<ul>
 						<li class="fragment"><span class="blue">Block-scoped</span>, like <code>let</code></li>
-						<li class="fragment">Value <span style="color:red;">cannot</span> be reassigned
+						<li class="fragment">Value <span style="color:red;">cannot</span> be changed by reassignment
 							<ul>
 								<li class="fragment"><code>const</code> stands for <span class="orange">constant</span></li>
 							</ul>
@@ -493,6 +494,108 @@ if (isPhiladelphia) {
 
 				</section>
 
+				<section data-background="#f05b62">
+					<h1 style="color: #fafafa;font-size:3.7em;">Classes</h1>
+				</section>
+		
+				<section>
+					<h2>Classes</h2>
+					<div class="clear">
+						<div class="halfblock fragment">
+							<h3 class="green underlined">ES5:</h3>
+							<pre class="small"><code class="javascript">function Vehicle(type) {
+		  this.type = type;
+		}
+		
+		Vehicle.prototype.logType = function() {
+		  console.log(this.type);
+		};
+		
+		var car = new Vehicle('car');
+		car.logType(); // 'car'
+		
+		console.log(car instanceof Vehicle); // true
+		console.log(car instanceof Object); // true</code></pre>
+							<p class="small fragment">called <span class="blue">"creating a custom type"</span></p>
+						</div>
+						<div class="halfblock fragment">
+							<h3 class="green underlined">ES6:</h3>
+							<pre class="small"><code class="javascript">class Vehicle {
+		  constructor(type) {
+			this.type = type;
+		  }
+		
+		  logType() {
+			console.log(this.type);
+		  }
+		}
+		const car = new Vehicle('car');
+		car.logType(); // 'car'
+		
+		console.log(car instanceof Vehicle); // true
+		console.log(car instanceof Object); // true</code></pre>
+						</div>
+					</div>
+					<p>&nbsp;</p>
+					<p class="small fragment green info">You don't need commas between the elements of a class</p>
+		
+					<aside class="notes">In ES5, we only had class-like structures. Involved creating a constructor and assigning methods to the constructor's prototype, an approach commonly referred to as creating a custom type. Why use classes?
+						<ul>
+							<li>Class declarations, unlike function declarations, are not <span class="orange">hoisted</span>; they behave like <code>let</code> declarations</li>
+							<li>All code inside class declarations runs in strict mode automatically</li>
+							<li>Calling the class constructor without <code>new</code> throws an error</li>
+							<li>Attempting to overwrite the class name within a class method throws an error</li>
+						</ul>
+					</aside>
+				</section>
+		
+				<section>
+					<h2>Derived Classes</h2>
+					<p class="fragment small"><span class="blue">Derived classes</span>: Classes that inherit from other classes</p>
+					<p class="fragment small">Within the derived class's <code>class {}</code> definition, use the <code>extends</code> keyword to specify the base class. Then access the base class constructor by calling <code>super()</code>.</p>
+					<pre class="fragment small"><code class="javascript">class Rectangle {
+		  constructor(length, width) {
+			this.length = length;
+			this.width = width;
+		  }
+		
+		  getArea() {
+			return this.length * this.width;
+		  }
+		}</code></pre>
+					<pre class="fragment small"><code class="javascript">class Square extends Rectangle {
+		  constructor(length) {
+			super(length, length); // calls the base class constructor
+		  }
+		}
+		
+		const square = new Square(5);
+		console.log(square.getArea()); // 25</code></pre>
+		
+		
+					<aside class="notes">
+						Inheritance -- no true object inheritance, but there is prototypal inheritance. If you ask 5 different engineers how it works, you’ll get 5 different answers. This is ES6’s solution to prototypal inheritance. Whenever you use a class, under the hood, you’re still using prototypal inheritance.
+					</aside>
+				</section>
+		
+				<section class="activity" data-background="rgb(6, 116, 123)">
+					<h2>Activity</h2>
+					<p>Classes and Derived Classes</p>
+					<div class="clear">
+						<div class="halfblock" style="min-height:265px">
+							<h3>Activity 1</h3>
+							<p data-height="265" data-theme-id="0" data-slug-hash="WOwEMY" data-default-tab="js" data-user="anythingcodes" data-embed-version="2" data-pen-title="Classes" class="codepen">See the Pen <a href="https://codepen.io/anythingcodes/pen/WOwEMY/">Classes</a> by Liz Shaw (<a href="https://codepen.io/anythingcodes">@anythingcodes</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+							<p><a href="https://codepen.io/anythingcodes/pen/vZGJRJ?editors=0011" target="_blank" class="solution solution__lesson-4">View Solution</a></p>
+						</div>
+						<div class="halfblock" style="min-height:265px">
+							<h3>Activity 2</h3>
+							<p data-height="265" data-theme-id="0" data-slug-hash="EXKyOJ" data-default-tab="js" data-user="anythingcodes" data-embed-version="2" data-pen-title="Shop Activity - Classes and Derived Classes" class="codepen">See the Pen <a href="https://codepen.io/anythingcodes/pen/EXKyOJ/">Shop Activity - Classes and Derived Classes</a> by Liz Shaw (<a href="https://codepen.io/anythingcodes">@anythingcodes</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+							<a href="https://codepen.io/anythingcodes/pen/YQqWdw?editors=0010" target="_blank" class="solution solution__lesson-4">View Solution</a>
+						</div>
+					</div>
+				</section>
+		
+		
 				<section data-background="#f05b62">
 					<h1 style="color: #fafafa;font-size:3.7em;">String Helpers</h1>
 				</section>
@@ -630,6 +733,11 @@ console.log(fruit);</code></pre>
 				</section>
 
 			</div>
+			<footer>
+				<div class="copyright">
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+				</div>
+			</footer>
 		</div>
 
 
