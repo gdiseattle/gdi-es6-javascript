@@ -503,37 +503,39 @@ if (isPhiladelphia) {
 					<div class="clear">
 						<div class="halfblock fragment">
 							<h3 class="green underlined">ES5:</h3>
-							<pre class="small"><code class="javascript">function Vehicle(type) {
-		  this.type = type;
-		}
-		
-		Vehicle.prototype.logType = function() {
-		  console.log(this.type);
-		};
-		
-		var car = new Vehicle('car');
-		car.logType(); // 'car'
-		
-		console.log(car instanceof Vehicle); // true
-		console.log(car instanceof Object); // true</code></pre>
-							<p class="small fragment">called <span class="blue">"creating a custom type"</span></p>
+<pre class="small"><code class="javascript">function Vehicle(type) {
+  this.type = type;
+}
+
+Vehicle.prototype.logType = function() {
+  console.log(this.type);
+};
+
+var car = new Vehicle('car');
+car.logType(); // 'car'
+
+console.log(car instanceof Vehicle); // true
+console.log(car instanceof Object); // true
+</code></pre>
+						<p class="small fragment">called <span class="blue">"creating a custom type"</span></p>
 						</div>
 						<div class="halfblock fragment">
 							<h3 class="green underlined">ES6:</h3>
-							<pre class="small"><code class="javascript">class Vehicle {
-		  constructor(type) {
-			this.type = type;
-		  }
-		
-		  logType() {
-			console.log(this.type);
-		  }
-		}
-		const car = new Vehicle('car');
-		car.logType(); // 'car'
-		
-		console.log(car instanceof Vehicle); // true
-		console.log(car instanceof Object); // true</code></pre>
+<pre class="small"><code class="javascript">class Vehicle {
+  constructor(type) {
+    this.type = type;
+  }
+
+  logType() {
+    console.log(this.type);
+  }
+}
+const car = new Vehicle('car');
+car.logType(); // 'car'
+
+console.log(car instanceof Vehicle); // true
+console.log(car instanceof Object); // true
+</code></pre>
 						</div>
 					</div>
 					<p>&nbsp;</p>
@@ -554,25 +556,25 @@ if (isPhiladelphia) {
 					<p class="fragment small"><span class="blue">Derived classes</span>: Classes that inherit from other classes</p>
 					<p class="fragment small">Within the derived class's <code>class {}</code> definition, use the <code>extends</code> keyword to specify the base class. Then access the base class constructor by calling <code>super()</code>.</p>
 					<pre class="fragment small"><code class="javascript">class Rectangle {
-		  constructor(length, width) {
-			this.length = length;
-			this.width = width;
-		  }
-		
-		  getArea() {
-			return this.length * this.width;
-		  }
-		}</code></pre>
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  getArea() {
+    return this.length * this.width;
+  }
+}
+</code></pre>
 					<pre class="fragment small"><code class="javascript">class Square extends Rectangle {
-		  constructor(length) {
-			super(length, length); // calls the base class constructor
-		  }
-		}
-		
-		const square = new Square(5);
-		console.log(square.getArea()); // 25</code></pre>
-		
-		
+  constructor(length) {
+    super(length, length); // calls the base class constructor
+  }
+}
+
+const square = new Square(5);
+console.log(square.getArea()); // 25
+  </code></pre>	
 					<aside class="notes">
 						Inheritance -- no true object inheritance, but there is prototypal inheritance. If you ask 5 different engineers how it works, you’ll get 5 different answers. This is ES6’s solution to prototypal inheritance. Whenever you use a class, under the hood, you’re still using prototypal inheritance.
 					</aside>
