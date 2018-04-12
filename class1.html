@@ -295,7 +295,7 @@
 					<p><img src="dist/img/codepen-babel.gif" style="border: 1px solid black;max-height:40vh;" alt="Using the Babel transpiler in CodePen" /></p>
 				</section>
 
-				<section data-background="#f05b62">
+				<!--<section data-background="#f05b62">
 					<h1 style="color: #fafafa;font-size:3.7em;">Scopes & Variables</h1>
 					<aside class="notes">Can someone tell me what scope means in the context of programming in general?</aside>
 				</section>
@@ -336,18 +336,19 @@ if (isPhiladelphia) {
 							<li>When you see the word <strong>function</strong>, it should trigger the fact that a new scope/context has been created. Any variables defined there are scoped to that area.</li>
 						</ul>
 					</aside>
-				</section>
+				</section>-->
 
 				<section>
-					<h2>Function Scope Problems</h2>
-					<p><code>var</code> variables are <span class="green">function-scoped</span>.<br />They ignore block scoping.</p>
+					<h2>Problems with var</h2>
+					<p><code>var</code> variables are function-scoped.</p>
+					<p class="small info"><a href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md" target="_blank">Function vs. Block Scope &raquo;</a></p>
 					<div style="min-height: 200px;">
 						<p data-height="200" data-theme-id="dark" data-slug-hash="GmqavN" data-default-tab="js,result" data-user="anythingcodes" data-embed-version="2" data-pen-title="Block-scoping: ES5 (Before)" class="codepen">See the Pen <a href="http://codepen.io/anythingcodes/pen/GmqavN/">Block-scoping: ES5 (Before)</a> by Liz Shaw (<a href="http://codepen.io/anythingcodes">@anythingcodes</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-						<a class="solution solution__lesson-1" href="http://codepen.io/anythingcodes/pen/zwBQEX?editors=0010" target="_blank">View Solution</a>
 					</div>
 
 					<p>To fake block scoping, an <span class="green">immediately-invoked function expression (IIFE)</span> is often used</p>
-
+					<a class="solution solution__lesson-1" href="http://codepen.io/anythingcodes/pen/zwBQEX?editors=0010" target="_blank">View Solution</a>
+					
 					<aside class="notes">
 						<ol>
 							<li>DON'T open console, ask students:
