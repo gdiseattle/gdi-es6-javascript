@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Getting Started with ES6 and ES7 JavaScript</title>
+		<title>Modern JavaScript ES6 and beyond</title>
 
 		<meta name="description" content="Materials and slides for a Girl Develop It ES6 JavaScript course. Includes ES7's minor additions.">
 		<meta name="author" content="Girl Develop It">
@@ -76,7 +76,7 @@
 					<ul>
 						<li>Who are you?</li>
 						<li>What do you hope to get out of the class?</li>
-						<li>If you woke up tomorrow as an animal, what animal would you choose to be and why?</li>
+						<li>What is your favorite restaurant in Seattle?</li>
 					</ul>
 				</section>
 
@@ -176,8 +176,8 @@
 							<p class="blue underlined">📄 Standard:</p>
 							<ul>
 								<li><span class="green">ECMAScript</span>, abbreviated <span class="green">ES</span>, is a standard</li>
-								<li class="fragment">Describes features, syntax, and behavior of all <span class="blue">implementations</span></li>
-								<li class="fragment">Think of it as a ruleset or blueprint</li>
+								<li>Describes features, syntax, and behavior of all <span class="blue">implementations</span></li>
+								<li>Think of it as a ruleset or blueprint</li>
 							</ul>
 
 							<p class="blue underlined"><br />✍ Implementation:</p>
@@ -249,9 +249,12 @@
 					<h2>Today's Topics</h2>
 					<ol>
 						<li>Transpiling</li>
-						<li>Scopes &amp; Variables</li>
+						<li>Let &amp; Const</li>
+						<li>ESLint</li>
+						<li>Template Strings</li>
+						<li>Enhanced Object Literals</li>
 						<li>Classes</li>
-						<li>String Helpers</li>
+						<!--<li>String Helpers</li>-->
 					</ol>
 
 				</section>
@@ -261,9 +264,9 @@
 				</section>
 
 				<section>
-					<h2><span class="green">Transpiling</span> = Transformation + Compiling</h2>
+					<h2><span class="green">Transpiling</span> = Source-to-source compiling</h2>
 					<p>&nbsp;</p>
-					<img src="dist/img/transpiling.svg" alt="Transpiling" />
+					<a target="_blank" href="https://babeljs.io/repl"><img src="dist/img/transpiling.svg" alt="Transpiling" /></a>
 					<div class="transpiler clear">
 						<div class="halfblock">
 							<h3 class="green">Before: ES6</h3>
@@ -282,7 +285,12 @@
 				<section>
 					<h2>Benefits to Transpiling</h2>
 					<ul>
-						<li class="fragment">Browser support</li>
+						<li class="fragment">Browser support
+							<ul>
+								<li><a href="http://kangax.github.io/compat-table/es6/" target="_blank">http://kangax.github.io/compat-table/es6/</a></li>
+								<li><a href="https://caniuse.com/#search=ES6" target="_blank">https://caniuse.com/#search=ES6</a></li>
+							</ul>
+						</li>
 						<li class="fragment">No need to wait for browsers/engines to catch up with the ECMAScript specification</li>
 						<li class="fragment">Focus on writing clean, easy-to-read code &mdash; compile it to a cross-browser-compatible format</li>
 						<li class="fragment">JavaScript will continue to <a href="https://dayssincelastjavascriptframework.com/" target="_blank">evolve constantly</a>; without transpilation, you'll miss out on innovations that make JavaScript more effective, efficient, and robust</li>
@@ -296,11 +304,11 @@
 				</section>
 
 				<section data-background="#f05b62">
-					<h1 style="color: #fafafa;font-size:3.7em;">Scopes & Variables</h1>
+					<h1 style="color: #fafafa;font-size:3.7em;">Let & Const</h1>
 					<aside class="notes">Can someone tell me what scope means in the context of programming in general?</aside>
 				</section>
 
-				<!--<section>
+				<section>
 					<h2>Scopes 🔬</h2>
 					<ol class="small">
 						<li>
@@ -336,12 +344,11 @@ if (isPhiladelphia) {
 							<li>When you see the word <strong>function</strong>, it should trigger the fact that a new scope/context has been created. Any variables defined there are scoped to that area.</li>
 						</ul>
 					</aside>
-				</section>-->
+				</section>
 
 				<section>
-					<h2>Var, let and const</h2>
-					<p><code>var</code> variables are function-scoped.</p>
-					<p class="small info"><a href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md" target="_blank">Function vs. Block Scope &raquo;</a></p>
+					<h2>Function Scope Problems</h2>
+					<p><code>var</code> variables are <span class="green">function-scoped</span>.<br />They ignore block scoping.</p>
 					<div style="min-height: 200px;">
 						<p data-height="200" data-theme-id="dark" data-slug-hash="YabKgr" data-default-tab="js,result" data-user="martik41" data-embed-version="2" data-pen-title="Block-scoping: ES5 (Before)" class="codepen">See the Pen <a href="https://codepen.io/martik41/pen/YabKgr">Block-scoping: ES5 (Before)</a></p>
 					</div>
