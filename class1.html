@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Modern JavaScript ES6 and beyond</title>
+		<title>Advanced JavaScript ES6 and beyond</title>
 
 		<meta name="description" content="Materials and slides for a Girl Develop It ES6 JavaScript course. Includes ES7's minor additions.">
 		<meta name="author" content="Girl Develop It">
@@ -50,7 +50,7 @@
 			<div class="slides">
         <!-- Opening -->
 				<section class="small">
-					<h1>Getting Started with ES6 and ES7 JavaScript</h1>
+					<h1>Advanced JavaScript ES6 and beyond</h1>
 					<img src="dist/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder"/>
 					<h2>Class 1</h2>
 				</section>
@@ -76,7 +76,7 @@
 					<ul>
 						<li>Who are you?</li>
 						<li>What do you hope to get out of the class?</li>
-						<li>What is your favorite restaurant in Seattle?</li>
+						<li>What is your favorite restaurant or coffee shop in Seattle?</li>
 					</ul>
 				</section>
 
@@ -321,15 +321,14 @@ if (isPhiladelphia) {
   var alwaysSunny = true;
 }</code></pre>
 							<ul class="small">
-								<li><span class="blue">Examples:</span> <code>{ }</code>, <code>if () { }</code>, <code>for() {}</code>, <code>while() { }</code>, etc.</li><li><span class="blue">Purpose:</span> Declare variables as close as possible, as local as possible, to where they will be used.</li>
+								<li><span class="blue">Examples:</span> <code>{ }</code>, <code>if () { }</code>, <code>for() {}</code>, <code>while() { }</code>, etc.</li><li>Allows us to declare variables as close as possible to where they will be used.</li><li>Allows us to minimize chances of variables conflict / allows to reuse variable names in different places within a function.</li>
 							</ul>
 						</li>
 						<li class="fragment">
-							<strong class="green">Function Scopes:</strong>
+							<strong class="green">Until ES6 JavaScript only had function scope</strong>
 							<pre><code contenteditable class="javascript">function func() {
   // function required
 }</code></pre>
-							<ul class="small"><li><span class="blue">Purpose:</span> Code wrapped in a function effectively "hides" any enclosed variable or function declarations from the outside scope.</li></ul>
 						</li>
 					</ol>
 					<p style="margin-top:.3em;" class="fragment"><code>var</code> <span class="orange">only respects function scopes</span></p>
