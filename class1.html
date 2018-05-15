@@ -310,28 +310,49 @@
 
 				<section>
 					<h2>Scopes 🔬</h2>
-					<ol class="small">
+					<ul class="small" style="list-style-type: none;">
 						<li>
-							<strong class="green">Block Scopes (a.k.a. lexical scopes):</strong>
-							<pre><code contenteditable class="javascript">{
-  // anything within { } that isn't a function
-}
-
-if (isPhiladelphia) {
-  var alwaysSunny = true;
-}</code></pre>
-							<ul class="small">
-								<li><span class="blue">Examples:</span> <code>{ }</code>, <code>if () { }</code>, <code>for() {}</code>, <code>while() { }</code>, etc.</li><li>Allows us to declare variables as close as possible to where they will be used.</li><li>Allows us to minimize chances of variables conflict / allows to reuse variable names in different places within a function.</li>
-							</ul>
-						</li>
-						<li class="fragment">
-							<strong class="green">Until ES6 JavaScript only had function scope</strong>
+							<strong class="green">Until ES6 JavaScript only had global and function level scope</strong>
 							<pre><code contenteditable class="javascript">function func() {
   // function required
 }</code></pre>
 						</li>
-					</ol>
+						<li>
+							<img src="dist/img/js-es5-scope-2.png"/>
+						</li>
+					</ul>
 					<p style="margin-top:.3em;" class="fragment"><code>var</code> <span class="orange">only respects function scopes</span></p>
+					<aside class="notes">
+						 Many programmers were used to block scoped variables. This made programming in JavaScript unintuitive and inconsistent for many who were used to block scoping.
+
+						<ul>
+							<li>Ask what the other form of scope is BEFORE the function scope definition shows.</li>
+							<li><code>alwaysSunny</code> exists in the global scope</li>
+							<li>A <strong>function</strong> cordons off an area. Plain old <code>{}</code> does not. Any variables defined in a function remain scoped there, and aren't accessible outside.</li>
+							<li>When you see the word <strong>function</strong>, it should trigger the fact that a new scope/context has been created. Any variables defined there are scoped to that area.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Scopes 🔬</h2>
+					<ul class="small" style="list-style-type: none;">
+						<li>
+							<strong class="green">Block Scopes (a.k.a. lexical scopes):</strong>
+							<pre><code contenteditable class="javascript">{
+  // block is anything within { } that isn't a function or a declaration of an object
+}
+</code></pre>
+							<ul class="small">
+								<li>
+									<span class="blue">Examples:</span> <code>{ }</code>, <code>if () { }</code>, <code>for() {}</code>, <code>while() { }</code>, etc.
+									<img src="dist/img/scope_diagram.png"/>
+								</li>
+								<li>Allows us to declare variables as close as possible to where they will be used.</li>
+								<li>Allows us to minimize chances of variables conflict / allows to reuse variable names in different places within a function.</li>		
+							</ul>
+						</li>
+					</ul>
 					<p class="fragment small info"><a href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md" target="_blank">Function vs. Block Scope &raquo;</a></p>
 					<aside class="notes">
 						 Most languages use block scopes. This made programming in JavaScript unintuitive and inconsistent for many who were used to block scoping.
@@ -345,7 +366,7 @@ if (isPhiladelphia) {
 					</aside>
 				</section>
 
-				<section>
+				<!--<section>
 					<h2>Function Scope Problems</h2>
 					<p><code>var</code> variables are <span class="green">function-scoped</span>.<br />They ignore block scoping.</p>
 					<div style="min-height: 200px;">
@@ -367,9 +388,38 @@ if (isPhiladelphia) {
 							<li>Ask what the output would be. DON'T open the console first.</li>
 						</ol>
 					</aside>
+				</section>-->
+				<section>
+					<h2><em>Let</em> and <em>Const</em> keywords</h2>
+					<ul>
+						<li class="fragment">Block-scoped <code>{ }</code>, unlike the function-scoped <code>var</code>
+						</li>
+
+						<li class="fragment"><code>Let</code> <span class="green">can</span> be reassigned
+							<ul>
+								<li>New way to declare variables</li>
+							</ul>
+						</li>
+						<li class="fragment"><code>Const</code> <span class="green">cannot</span> be reassigned
+							<ul>
+								<li>Const stands for constant</li>
+								<li>Must be initialized on declaration</li>
+								<li>But... Complex values can be changed
+										<p class="fragment">
+												<img src="dist/img/const-bindings__step4.gif" alt="const bindings and reassignments" />
+										</p>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+					<aside class="notes">
+						Const doesn't hold a constant array/object. Rather, it holds a constant reference to the array/object. The array/object itself is freely mutable. A const binding that references an object can’t later reference a different value, but the underlying object can indeed mutate.
+					</aside>
+
 				</section>
 
-				<section>
+				<!--<section>
 					<h2>The <em>let</em> Declaration</h2>
 					<ul>
 						<li class="fragment"><span class="blue">Block-scoped</span> <code>{ }</code>, unlike the function-scoped <code>var</code>
@@ -387,7 +437,7 @@ if (isPhiladelphia) {
 						Doesn't have to use a function or IIFE to create a new scope
 					</aside>
 
-				</section>
+				</section>-->
 
 				<section class="activity" data-background="rgb(6, 116, 123)">
 					<h2>Activity</h2>
@@ -413,7 +463,7 @@ if (isPhiladelphia) {
 					</aside>
 				</section>
 
-				<section>
+				<!--<section>
 					<h2>The <em>const</em> Declaration</h2>
 					<ul>
 						<li class="fragment"><span class="blue">Block-scoped</span>, like <code>let</code></li>
@@ -480,7 +530,7 @@ if (isPhiladelphia) {
 					<aside class="notes">
 						Reality is that ES6 has brought much-needed functionality to the table. Block-scoping is a game-changer. Huge benefit to const/let is that they do not pollute your global scope (<code>window</code> in browsers). Much safer.
 					</aside>
-				</section>
+				</section>-->
 
 				<section class="activity" data-background="rgb(6, 116, 123)">
 					<h2>Activity</h2>
