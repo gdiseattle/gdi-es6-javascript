@@ -60,7 +60,6 @@
             <ol>
                 <li>Review at-home challenges from last class</li>
                 <li>Function Parameters</li>
-                <li>Object Syntax</li>
                 <li>Destructuring Objects</li>
                 <li>Destructuring Arrays</li>
             </ol>
@@ -449,72 +448,6 @@ console.log(combo); // ['a', 'b', 'c', 'x', 'y', 'z']</code></pre>
                     <p><a href="https://codepen.io/anythingcodes/pen/aWVPja?editors=0010" target="_blank" class="solution__lesson-3 solution">View Solution &raquo;</a></p>
                 </div>
             </div>
-        </section>
-
-        <section data-background="#f05b62">
-            <h1 style="color: #fafafa;font-size:3.7em;">Object Syntax</h1>
-            <aside class="notes">ES6 has a few minor changes to make code more understandable/easy-to-read</aside>
-        </section>
-
-        <section>
-            <h2>Property Initializer Shorthand</h2>
-            <p>When an object property name is the same as the local variable name, you can include the name without a colon and value</p>
-            <div class="clear small">
-                <div class="halfblock fragment">
-                    <h3 class="green underlined">ES5:</h3>
-                    <pre><code class="javascript">function saveData(url, data){
-  $.ajax({ method: 'POST', url: url, data: data });
-}</code></pre>
-                    <p class="right small fragment">becomes</p>
-                </div>
-                <div class="halfblock fragment">
-                    <h3 class="green underlined">ES6:</h3>
-                    <pre><code class="javascript">function saveData(url, data){
-  $.ajax({ url, data, method: 'POST' });
-}</code></pre>
-                </div>
-            </div>
-            <p class="fragment">Sometimes referred to as <span class="green">enhanced literal notation</span></p>
-            <aside class="notes">Convention is to place shorthanded properties at beginning for readability. This example uses jQuery, but you don't need to know it; it's just an example.</aside>
-        </section>
-
-        <section>
-            <h2>Concise methods</h2>
-            <p class="fragment">Object methods no longer need <code>: function</code></p>
-            <div class="clear">
-                <div class="halfblock fragment">
-                    <h3 class="green underlined">ES5:</h3>
-                    <pre><code class="javascript" contenteditable>var dog = {
-  name: 'Boo',
-  bark: function() {
-    console.log('yip!');
-  }
-};
-dog.bark(); // yip!</code></pre>
-                    <p class="right small fragment">becomes</p>
-                </div>
-                <div class="halfblock fragment">
-                    <h3 class="green underlined">ES6:</h3>
-                    <pre><code class="javascript">const dog = {
-  name: 'Boo',
-  bark() {
-    console.log('yip!');
-  }
-};
-dog.bark(); // yip!</code></pre>
-                </div>
-            </div>
-            <aside class="notes">Reformat ES5 version in front of students</aside>
-        </section>
-
-        <section class="activity" data-background="rgb(6, 116, 123)">
-            <h2>Activity</h2>
-            <h3>Using Enhanced Object Syntax</h3>
-
-            <p data-height="265" data-theme-id="0" data-slug-hash="OgJOzd" data-default-tab="js" data-user="anythingcodes" data-embed-version="2" data-pen-title="Object Syntax" class="codepen">See the Pen <a href="https://codepen.io/anythingcodes/pen/OgJOzd/">Object Syntax</a> by Liz Shaw (<a href="https://codepen.io/anythingcodes">@anythingcodes</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-
-            <a class="solution solution__lesson-3" href="https://codepen.io/anythingcodes/pen/awbVqW?editors=0012" target="_blank">View Solution</a>
-
         </section>
 
         <section data-background="#f05b62">
